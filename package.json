@@ -1,0 +1,30 @@
+{
+  "name": "gamegoyles",
+  "version": "1.0.0",
+  "description": "Stream assistant for marathons",
+  "main": "main/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slashinfty/gamegoyles.git"
+  },
+  "author": "Matt Braddock",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slashinfty/gamegoyles/issues"
+  },
+  "homepage": "https://github.com/slashinfty/gamegoyles#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.1",
+    "twitch": "^4.5.5",
+    "twitter-v2": "^1.1.0"
+  },
+  "devDependencies": {
+    "electron": "^12.0.5",
+    "electron-builder": "^22.10.5"
+  }
+}
