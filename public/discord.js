@@ -2,7 +2,7 @@ const discordClient = new Discord.Client();
 discordClient.login(process.env.DISCORD_TOKEN);
 
 discordClient.on('message', async message => {
-    const comm = commands.find(c => c.command === message);
+    const comm = commands.find(c => c.command === message.content);
     if (comm === undefined) return;
     message.channel.send(comm.reply);
 });
