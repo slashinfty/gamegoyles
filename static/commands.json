@@ -1,0 +1,32 @@
+{
+    "commands": [
+        {
+            "command": "!schedule",
+            "reply": "View the schedule here: "
+        },
+        {
+            "command": "!twitter",
+            "reply": "Follow us on Twitter: https://twitter.com/gamegoyles"
+        },
+        {
+            "command": "!discord",
+            "reply": "Join us on Discord: https://discord.gg/MwZ9wn9x3R"
+        },
+        {
+            "command": "!youtube",
+            "reply": "Subscribe to us on YouTube: https://www.youtube.com/channel/UCj4NE1v-IKlMEbEgL9GqgpA"
+        },
+        {
+            "command": "!donate",
+            "reply": "Donate here: "
+        },
+        {
+            "command": "!charity",
+            "reply": "We are supporting CHARITY - learn more about them here: "
+        },
+        {
+            "command": "!runner",
+            "reply": ""
+        }
+    ]
+}

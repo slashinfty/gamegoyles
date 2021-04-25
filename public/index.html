@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Gamegoyles Hub</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+    <!-- CSS -->
+    <link href="index.css" rel="stylesheet">
+
+    <!-- Fonts -->
+
+</head>
+<body>
+    <div id="background" style="display: none;">
+        <div id="timer"></div>
+        <div id="game-name"></div>
+        <div id="category-name"></div>
+        <div id="donation-total"></div>
+        <div id="charity-info"></div>
+        <div id="music-playing"></div>
+        <div id="game-feed-1" class="game-feed"></div>
+        <div id="game-feed-2" class="game-feed"></div>
+        <div id="game-feed-3" class="game-feed"></div>
+        <div id="game-feed-4" class="game-feed"></div>
+        <div id="runner-name-1" class="runner-name"></div>
+        <div id="runner-name-2" class="runner-name"></div>
+        <div id="runner-name-3" class="runner-name"></div>
+        <div id="runner-name-4" class="runner-name"></div>
+        <div id="runner-pronouns-1" class="runner-pronouns"></div>
+        <div id="runner-pronouns-2" class="runner-pronouns"></div>
+        <div id="runner-pronouns-3" class="runner-pronouns"></div>
+        <div id="runner-pronouns-4" class="runner-pronouns"></div>
+        <div id="runner-time-1" class="runner-time"></div>
+        <div id="runner-time-2" class="runner-time"></div>
+        <div id="runner-time-3" class="runner-time"></div>
+        <div id="runner-time-4" class="runner-time"></div>
+        <div id="next-game-1" class="next-game"></div>
+        <div id="next-game-2" class="next-game"></div>
+        <div id="next-game-3" class="next-game"></div>
+        <div id="next-runner-1" class="next-runner"></div>
+        <div id="next-runner-2" class="next-runner"></div>
+        <div id="next-runner-3" class="next-runner"></div>
+    </div>
+    <div id="settings">
+        <p>
+            <label for="runs">Current Run: </label>
+            <select id="runs"></select>
+            &nbsp;
+            <label for="layout">Layout: </label>
+            <select id="layout"></select>
+            &nbsp;
+            <label for="player-count">Player Count: </label>
+            <select id="player-count">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            &nbsp;
+            <button id="load-layout" onclick="loadLayout();">Load Layout</button>
+        </p>
+        <p>
+            <label for="status">Status: </label>
+            <input type="text" id="status" size="60" />
+            &nbsp;
+            <button id="discord" onclick="sendMessage();">Send to Discord</button>
+            &nbsp;
+            <button id="twitter" onclick="sendTweet();">Send to Twitter</button>
+        </p>
+        <p>
+            <button id="start-timer" onclick="stopwatch.start();">Start Timer</button>
+            &nbsp;
+            <button id="reset-timer" onclick="stopwatch.reset();">Reset Timer</button>
+            &nbsp;
+            <button id="set-time-1" onclick="stopwatch.finish(1);">Player 1 Finish</button>
+            &nbsp;
+            <button id="set-time-2" onclick="stopwatch.finish(2);">Player 2 Finish</button>
+            &nbsp;
+            <button id="set-time-3" onclick="stopwatch.finish(3);">Player 3 Finish</button>
+            &nbsp;
+            <button id="set-time-4" onclick="stopwatch.finish(4);">Player 4 Finish</button>
+        </p>
+    </div>
+
+     <!-- JavaScript -->
+     <script src="meta.js"></script>
+     <script src="discord.js"></script>
+     <script src="music.js"></script>
+     <script src="oengus.js"></script>
+     <script src="tiltify.js"></script>
+     <script src="timer.js"></script>
+     <script src="twitch.js"></script>
+     <script src="twitter.js"></script>
+     <script src="layout.js"></script>
+</body>
+</html>
