@@ -17,6 +17,6 @@ const layoutsPath = path.resolve(__dirname, '../static/layouts.json');
 const layouts = require(layoutsPath);
 
 const pronounsPath = path.resolve(__dirname, '../static/pronouns.json');
-const pronouns = require(pronounsPath);
+const pronounsList = require(pronounsPath);
 
 var stopwatch;

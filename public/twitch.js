@@ -15,10 +15,11 @@ const apiClient = new ApiClient({ authProvider });
 
 const changeStatus = async () => {
     const self = await apiClient.helix.users.getMe();
-    const helixGame = await apiClient.helix.games.getGameByName('game name'); //get from select/option
+    const runElement = document.getElementById('runs');
+    const helixGame = await apiClient.helix.games.getGameByName(runElement.options[runElement.selectedIndex].dataset.game);
     const game = await helixGame.id;
     await apiClient.helix.channels.updateChannelInfo(self, {
-        title: 'title', // Marathon name
+        title: process.env.TWITCH_TITLE,
         gameId: game
     });
 }

@@ -18,3 +18,14 @@ const loadLayout = () => {
     });
     stopwatch = new Stopwatch(document.getElementById('player-count').value);
 }
+
+const setNames = () => {
+    const names = document.querySelectorAll('.runner-name');
+    const pronouns = document.querySelectorAll('.runner-pronouns');
+    const runs = document.getElementById('runs');
+    const nameArray = runs.options[runs.selectedIndex].dataset.runners.split(',');
+    nameArray.forEach((n, i) => {
+        names[i].innerText = n;
+        pronouns[i].innerText = pronounsList[n];
+    });
+}
