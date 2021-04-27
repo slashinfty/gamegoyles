@@ -8,7 +8,9 @@ discordClient.on('message', async message => {
 });
 
 const sendMessage = () => {
+    toggleDisable('discord');
     const msg = document.getElementById('status').value;
     const channel = discordClient.channels.cache.find(c => c.id === process.env.DISCORD_CHANNEL);
     channel.send(msg);
+    setTimeout(toggleDisable, 10000, 'discord');
 }

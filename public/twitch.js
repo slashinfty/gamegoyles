@@ -1,6 +1,23 @@
-const authProvider = new StaticAuthProvider(process.env.TWITCH_CLIENT_ID, process.env.TWITCH_ACCESS_TOKEN);
-
 document.addEventListener("DOMContentLoaded", async () => {
+    const authProvider = new RefreshableAuthProvider(
+        new StaticAuthProvider(process.env.TWITCH_CLIENT_ID, twitchTokens.accessToken),
+        {
+            clientSecret: process.env.TWITCH_CLIENT_SECRET,
+            refreshToken: twitchTokens.refreshToken,
+            expiry: twitchTokens.expiryTimestamp === null ? null : new Date(twitchTokens.expiryTimestamp),
+            onRefresh: async newToken => {
+                const newTokenData = {
+                    accessToken: newToken.accessToken,
+                    refreshToken: newToken.refreshToken,
+                    expiryTimestamp: newToken.expiryDate === null ? null : newToken.expiryDate.getTime()
+                };
+                fs.writeFileSync(twitchTokensPath, JSON.stringify(newTokenData, null, 4), 'UTF-8');
+            }
+        }
+    );
+
+    apiClient = new ApiClient({ authProvider });
+
     const chatClient = new ChatClient(authProvider, { channels: ['gamegoylesmarathon'] });
     await chatClient.connect(); 
 
@@ -10,8 +27,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         channel.send(comm.reply);
     });
 });
-
-const apiClient = new ApiClient({ authProvider });
 
 const changeStatus = async () => {
     const self = await apiClient.helix.users.getMe();

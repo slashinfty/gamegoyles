@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     schedule.forEach(run => {
         const option = document.createElement('option');
         option.dataset.runners = run.runners.map(r => r.username).toString();
+        option.dataset.twitch = run.runners.map(r => r.twitchName).filter(r => r !== null).toString();
         option.dataset.game = run.gameName;
         option.innerText = (d.getMonth() + 1).toString() + '/' + d.getDate() + ' ' + d.getHours() + ':' + (0 + d.getMinutes()).substr(-2) + ' ' + option.dataset.game + ' - ' + formatNames(option.dataset.runners);
         runs.appendChild(option);

@@ -16,6 +16,7 @@ const loadLayout = () => {
             for (const prop in element) el.style[prop] = element[prop];
         }
     });
+    setNames();
     stopwatch = new Stopwatch(document.getElementById('player-count').value);
 }
 
@@ -28,4 +29,7 @@ const setNames = () => {
         names[i].innerText = n;
         pronouns[i].innerText = pronounsList[n];
     });
+    const twitchArray = runs.options[runs.selectedIndex].dataset.twitch.split(',');
+    const runnerCommand = twitchArray.reduce((a, b, i) => a += i === 0 ? 'https://twitch.tv/' + b : ' https://twitch.tv/' + b, '');
+    commands[commands.findIndex(c => c.command === '!runner')].reply = runnerCommand === '' ? '' : twitchArray.length === 1 ? 'Follow the runner! ' + runnerCommand : 'Follow the runners! ' + runnerCommand;
 }

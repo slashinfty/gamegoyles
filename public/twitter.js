@@ -6,6 +6,8 @@ const twitterClient = new Twitter({
 });
 
 const sendTweet = async () => {
+    toggleDisable('twitter');
     const tweet = document.getElementById('status').value + '\r\n https://twitch.tv/gamegoylesmarathon';
     twitterClient.post('statuses/update', { status: tweet });
+    setTimeout(toggleDisable, 10000, 'twitter');
 }
