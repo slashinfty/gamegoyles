@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     chatClient.onMessage((channel, user, message) => {
         const comm = commands.find(c => c.command === message);
         if (comm === undefined) return;
-        channel.send(comm.reply);
+        chatClient.say(channel, comm.reply);
     });
 });
 
