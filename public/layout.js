@@ -1,19 +1,41 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const layoutSelect = document.getElementById('layout');
+    Object.keys(layouts.layouts).forEach(layout => {
+        const option = document.createElement('option');
+        option.value = layout;
+        option.innerText = layout;
+        layoutSelect.appendChild(option);
+    });
+    const rootLayout = layouts.root;
+    const elements = Object.keys(rootLayout);
+    elements.forEach(element => {
+        if (element.startsWith('.')) {
+            const els = document.querySelectorAll(element);
+            for (const prop in rootLayout[element]) els.forEach(el => el.style[prop] = rootLayout[element][prop]);
+        } else {
+            const el = document.getElementById(element);
+            for (const prop in rootLayout[element]) el.style[prop] = rootLayout[element][prop];
+        }
+    });
+});
+
 const loadLayout = () => {
     const backgroundDIVs = document.querySelectorAll('#background > div');
     [...backgroundDIVs].forEach(d => d.style.display = 'none');
+    document.getElementById('background').style.display = 'block';
     const selectedLayout = layouts[document.getElementById('layout').value];
     const elements = Object.keys(selectedLayout);
     elements.forEach(element => {
         if (element.startsWith('.')) {
             const els = document.querySelectorAll(element);
-            [...els].forEach(el => {
+            els.forEach(el => {
                 el.style.display = 'block';
-                for (const prop in element) el.style[prop] = element[prop];
+                for (const prop in rootLayout[element]) el.style[prop] = rootLayout[element][prop];
             });
         } else {
             const el = document.getElementById(element);
             el.style.display = 'block';
-            for (const prop in element) el.style[prop] = element[prop];
+            for (const prop in rootLayout[element]) el.style[prop] = rootLayout[element][prop];
         }
     });
     setNames();

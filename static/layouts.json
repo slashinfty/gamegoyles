@@ -1,10 +1,15 @@
 {
-	"nes": {
-		"background": {
-			"background-image": ""
-		},
-		".runner-pronouns": {
-
+	"root": {
+		"game-feed-1": {
+			"left": "250px",
+			"top": "20px"
+		}
+	},
+	"layouts": {
+		"1P-NES": {
+			".pronouns": {
+				"left": "280px"
+			}
 		}
 	}
-}
+  }
