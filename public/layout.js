@@ -55,3 +55,12 @@ const setNames = () => {
     const runnerCommand = twitchArray.reduce((a, b, i) => a += i === 0 ? 'https://twitch.tv/' + b : ' https://twitch.tv/' + b, '');
     commands[commands.findIndex(c => c.command === '!runner')].reply = runnerCommand === '' ? '' : twitchArray.length === 1 ? 'Follow the runner! ' + runnerCommand : 'Follow the runners! ' + runnerCommand;
 }
+
+const updateOffline = () => {
+    const runs = document.getElementById('runs');
+    const currentRunIndex = runs.selectedIndex;
+    for (let i = 0; i < 3; i++) {
+        const next = runs.options[currentRunIndex + 1 + i];
+        fs.writeFileSync(nextPaths[i], next.dataset.game + '\n' + next.dataset.twitch.split(',').reduce((a, b, i) => a += i === 0 ? b : ', ' + b, ''));
+    }
+}
