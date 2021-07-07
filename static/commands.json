@@ -2,7 +2,7 @@
     "commands": [
         {
             "command": "!schedule",
-            "reply": "View the schedule here: "
+            "reply": "View the schedule here: https://oengus.io/marathon/gg-ep1/schedule"
         },
         {
             "command": "!twitter",
@@ -18,11 +18,11 @@
         },
         {
             "command": "!donate",
-            "reply": "Donate here: "
+            "reply": "Donate here: https://donate.tiltify.com/@gamegoyles/gamegoyles-episode-1"
         },
         {
             "command": "!charity",
-            "reply": "We are supporting CHARITY - learn more about them here: "
+            "reply": "We are supporting Trans Student Educational Resources - learn more about them here: https://transstudent.org/"
         },
         {
             "command": "!runner",

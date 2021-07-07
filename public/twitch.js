@@ -27,14 +27,3 @@ document.addEventListener("DOMContentLoaded", async () => {
         chatClient.say(channel, comm.reply);
     });
 });
-
-const changeStatus = async () => {
-    const self = await apiClient.helix.users.getMe();
-    const runElement = document.getElementById('runs');
-    const helixGame = await apiClient.helix.games.getGameByName(runElement.options[runElement.selectedIndex].dataset.game);
-    const game = await helixGame.id;
-    await apiClient.helix.channels.updateChannelInfo(self, {
-        title: process.env.TWITCH_TITLE,
-        gameId: game
-    });
-}

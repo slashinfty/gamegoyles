@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-const loadLayout = () => {
+const loadLayout = async () => {
     const backgroundDIVs = document.querySelectorAll('#background > div');
     [...backgroundDIVs].forEach(d => d.style.display = 'none');
     document.getElementById('background').style.display = 'block';
-    const selectedLayout = layouts[document.getElementById('layout').value];
+    const selectedLayout = layouts.layouts[document.getElementById('layout').value];
     const elements = Object.keys(selectedLayout);
     elements.forEach(element => {
         if (element.startsWith('.')) {
@@ -39,12 +39,14 @@ const loadLayout = () => {
         }
     });
     setNames();
-    stopwatch = new Stopwatch(document.getElementById('player-count').value);
+    updateTwitch();
+    updateUpcoming();
+    stopwatch = new Stopwatch(/^\d/.exec(document.getElementById('layout').value)[0]);
 }
 
 const setNames = () => {
-    const names = document.querySelectorAll('.runner-name');
-    const pronouns = document.querySelectorAll('.runner-pronouns');
+    const names = [...document.querySelectorAll('.runner-name')];
+    const pronouns = [...document.querySelectorAll('.runner-pronouns')];
     const runs = document.getElementById('runs');
     const nameArray = runs.options[runs.selectedIndex].dataset.runners.split(',');
     nameArray.forEach((n, i) => {
@@ -56,7 +58,18 @@ const setNames = () => {
     commands[commands.findIndex(c => c.command === '!runner')].reply = runnerCommand === '' ? '' : twitchArray.length === 1 ? 'Follow the runner! ' + runnerCommand : 'Follow the runners! ' + runnerCommand;
 }
 
-const updateOffline = () => {
+const updateTwitch = async () => {
+    const self = await apiClient.helix.users.getMe();
+    const runElement = document.getElementById('runs');
+    const helixGame = await apiClient.helix.games.getGameByName(runElement.options[runElement.selectedIndex].dataset.game);
+    const game = await helixGame.id;
+    await apiClient.helix.channels.updateChannelInfo(self, {
+        title: process.env.TWITCH_TITLE,
+        gameId: game
+    });
+}
+
+const updateUpcoming = () => {
     const runs = document.getElementById('runs');
     const currentRunIndex = runs.selectedIndex;
     for (let i = 0; i < 3; i++) {

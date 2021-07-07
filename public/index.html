@@ -9,15 +9,24 @@
     <link href="index.css" rel="stylesheet">
 
     <!-- Fonts -->
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&family=Oxygen+Mono&display=swap" rel="stylesheet"> 
+    <!-- 
+        font-family: 'Bebas Neue', cursive;
+        font-family: 'Lato', sans-serif;
+        font-family: 'Oxygen Mono', monospace; 
+    -->
 </head>
 <body>
     <div id="background" style="display: none;">
         <div id="timer"></div>
         <div id="game-name"></div>
         <div id="category-name"></div>
+        <div id="estimate"></div>
         <div id="donation-total"></div>
-        <div id="charity-info"></div>
+        <div id="charity-text"></div>
+        <div id="charity-logo"></div>
         <div id="music-playing"></div>
         <div id="game-feed-1" class="game-feed"></div>
         <div id="game-feed-2" class="game-feed"></div>
@@ -35,12 +44,9 @@
         <div id="runner-time-2" class="runner-time"></div>
         <div id="runner-time-3" class="runner-time"></div>
         <div id="runner-time-4" class="runner-time"></div>
-        <div id="next-game-1" class="next-game"></div>
-        <div id="next-game-2" class="next-game"></div>
-        <div id="next-game-3" class="next-game"></div>
-        <div id="next-runner-1" class="next-runner"></div>
-        <div id="next-runner-2" class="next-runner"></div>
-        <div id="next-runner-3" class="next-runner"></div>
+        <div id="upcoming-run-1" class="upcoming-run"></div>
+        <div id="upcoming-run-2" class="upcoming-run"></div>
+        <div id="upcoming-run-3" class="upcoming-run"></div>
     </div>
     <div id="settings">
         <p>
@@ -50,17 +56,7 @@
             <label for="layout">Layout: </label>
             <select id="layout"></select>
             &nbsp;
-            <label for="player-count">Player Count: </label>
-            <select id="player-count">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-            &nbsp;
             <button id="load-layout" onclick="loadLayout();">Load Layout</button>
-            &nbsp;
-            <button id="update-twitch" onclick="changeStatus();">Update Twitch</button>
         </p>
         <p>
             <label for="status">Status: </label>
@@ -82,9 +78,6 @@
             <button id="set-time-3" onclick="stopwatch.finish(3);">Player 3 Finish</button>
             &nbsp;
             <button id="set-time-4" onclick="stopwatch.finish(4);">Player 4 Finish</button>
-        </p>
-        <p>
-            <button id="update-offline" onclick="updateOffline();">Update Offline Text</button>
         </p>
     </div>
 
