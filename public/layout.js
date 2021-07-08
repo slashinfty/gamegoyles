@@ -30,12 +30,14 @@ const loadLayout = async () => {
             const els = document.querySelectorAll(element);
             els.forEach(el => {
                 el.style.display = 'block';
-                for (const prop in rootLayout[element]) el.style[prop] = rootLayout[element][prop];
+                for (const prop in selectedLayout[element]) el.style[prop] = selectedLayout[element][prop];
             });
         } else {
             const el = document.getElementById(element);
+            console.log('element: ' + element);
+            console.log('el: ' + el);
             el.style.display = 'block';
-            for (const prop in rootLayout[element]) el.style[prop] = rootLayout[element][prop];
+            for (const prop in selectedLayout[element]) el.style[prop] = selectedLayout[element][prop];
         }
     });
     setNames();

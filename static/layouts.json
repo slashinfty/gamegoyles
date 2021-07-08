@@ -1,14 +1,18 @@
 {
 	"root": {
-		"game-feed-1": {
-			"left": "250px",
-			"top": "20px"
+		".top": {
+			"text-align": "center",
+			"display": "flex",
+			"flex-direction": "column",
+			"justify-content": "flex-end",
+			"font-family": "Bebas Neue",
+			"color": "#FFFFFF"
 		}
 	},
 	"layouts": {
 		"1P-16:9": {
-			".pronouns": {
-				"left": "280px"
+			"background": {
+				"background-image": "url('../assets/1p-16_9.png')"
 			}
 		},
 		"1P-10:9": {
