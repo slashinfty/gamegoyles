@@ -3,7 +3,7 @@ class Stopwatch {
         this.running = false;
         this.finished = false;
         this.display = document.getElementById('timer');
-        this.max = playerCount;
+        this.max = Number(playerCount);
         this.reset();
     }
 

@@ -7,12 +7,76 @@
 			"justify-content": "flex-end",
 			"font-family": "Bebas Neue",
 			"color": "#FFFFFF"
+		},
+		".bottom": {
+			"text-align": "center",
+			"display": "flex",
+			"flex-direction": "column",
+			"font-family": "Lato",
+			"color": "#FFFFFF"
+		},
+		"donation-total": {
+			"justify-content": "flex-end",
+			"font-family": "Bebas Neue",
+			"color": "#FFFFFF"
+		},
+		"timer": {
+			"font-family": "Oxygen Mono"
 		}
 	},
 	"layouts": {
 		"1P-16:9": {
 			"background": {
 				"background-image": "url('../assets/1p-16_9.png')"
+			},
+			"game-name": {
+				"font-size": "26px",
+				"left": "27px",
+				"height": "75px",
+				"width": "160px",
+				"top": "24px"
+			},
+			"category-name": {
+				"font-size": "16px",
+				"left": "27px",
+				"height": "50px",
+				"width": "160px",
+				"top": "101px"
+			},
+			"runner-name-1": {
+				"font-size": "26px",
+				"left": "27px",
+				"height": "50px",
+				"width": "160px",
+				"top": "195px"
+			},
+			"runner-pronouns-1": {
+				"font-size": "16px",
+				"left": "27px",
+				"height": "50px",
+				"width": "160px",
+				"top": "247px"
+			},
+			"timer": {
+				"font-size": "24px",
+				"left": "27px",
+				"height": "50px",
+				"width": "160px",
+				"top": "342px"
+			},
+			"estimate": {
+				"font-size": "16px",
+				"left": "27px",
+				"height": "50px",
+				"width": "160px",
+				"top": "395px"
+			},
+			"donation-total": {
+				"font-size": "80px",
+				"left": "1010px",
+				"height": "85px",
+				"width": "250px",
+				"top": "606px"
 			}
 		},
 		"1P-10:9": {

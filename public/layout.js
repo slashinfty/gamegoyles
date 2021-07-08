@@ -29,14 +29,12 @@ const loadLayout = async () => {
         if (element.startsWith('.')) {
             const els = document.querySelectorAll(element);
             els.forEach(el => {
-                el.style.display = 'block';
+                el.style.display = 'flex';
                 for (const prop in selectedLayout[element]) el.style[prop] = selectedLayout[element][prop];
             });
         } else {
             const el = document.getElementById(element);
-            console.log('element: ' + element);
-            console.log('el: ' + el);
-            el.style.display = 'block';
+            el.style.display = 'flex';
             for (const prop in selectedLayout[element]) el.style[prop] = selectedLayout[element][prop];
         }
     });
@@ -50,10 +48,16 @@ const setNames = () => {
     const names = [...document.querySelectorAll('.runner-name')];
     const pronouns = [...document.querySelectorAll('.runner-pronouns')];
     const runs = document.getElementById('runs');
+    document.getElementById('game-name').innerText = runs.options[runs.selectedIndex].dataset.game;
+    document.getElementById('category-name').innerText = runs.options[runs.selectedIndex].dataset.category;
+    document.getElementById('estimate').innerText = 'Est. ' + runs.options[runs.selectedIndex].dataset.estimate;
+    ['game-name', 'category-name', 'estimate', 'donation-total', 'timer'].forEach(el => document.getElementById(el).style.display = 'flex');
     const nameArray = runs.options[runs.selectedIndex].dataset.runners.split(',');
     nameArray.forEach((n, i) => {
         names[i].innerText = n;
+        if (names[i].style.display === 'none') names[i].style.display = 'flex';
         pronouns[i].innerText = pronounsList[n];
+        if (pronouns[i].style.display === 'none') pronouns[i].style.display = 'flex';
     });
     const twitchArray = runs.options[runs.selectedIndex].dataset.twitch.split(',');
     const runnerCommand = twitchArray.reduce((a, b, i) => a += i === 0 ? 'https://twitch.tv/' + b : ' https://twitch.tv/' + b, '');

@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             option.dataset.runners = run.runners.map(r => r.username).toString();
             option.dataset.twitch = run.runners.map(r => r.twitchName).filter(r => r !== null).toString();
             option.dataset.game = run.gameName;
+            option.dataset.category = run.categoryName;
             option.dataset.estimate = formatEstimate(run.estimate);
             const d = new Date(run.date);
             option.innerText = (d.getMonth() + 1).toString() + '/' + d.getDate() + ' ' + d.getHours() + ':' + ('0' + d.getMinutes()).substr(-2) + ' ' + option.dataset.game + ' - ' + formatNames(option.dataset.runners.split(','));
