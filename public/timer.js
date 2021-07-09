@@ -12,10 +12,11 @@ class Stopwatch {
         this.times = [ 0, 0, 0, 0 ];
         this.count = 0;
         this.print(this.times);
+        this.time = false;
     }
 
     start() {
-        if (this.finished || this.running) return;
+        if (this.running) return;
         if (!this.time) this.time = performance.now();
         this.running = true;
         requestAnimationFrame(this.step.bind(this));
