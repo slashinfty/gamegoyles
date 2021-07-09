@@ -23,14 +23,6 @@ const pronounsList = require(pronounsPath);
 const twitchTokensPath = path.resolve(__dirname, '../.twitch-tokens.json');
 const twitchTokens = require(twitchTokensPath);
 
-const nextPaths = [
-    path.resolve(__dirname, '../static/run1.txt'),
-    path.resolve(__dirname, '../static/run2.txt'),
-    path.resolve(__dirname, '../static/run3.txt')
-];
-
-const donation = path.resolve(__dirname, '../static/donation.txt');
-
 const toggleDisable = elementID => document.getElementById(elementID).disabled = !document.getElementById(elementID).disabled;
 
 var stopwatch, apiClient;
