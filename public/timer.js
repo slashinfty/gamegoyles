@@ -30,8 +30,10 @@ class Stopwatch {
             this.finished = true;
         }
         let times = this.times;
-        const el = document.getElementById('runner-name-' + player);
-        el.innerHTML = this.format(times) + '<br>' + el.innerText;
+        if (this.max > 1) {
+            const el = document.getElementById('runner-name-' + player);
+            el.innerHTML = this.format(times) + '<br>' + el.innerText;
+        }
     }
 
     step(timestamp) {
