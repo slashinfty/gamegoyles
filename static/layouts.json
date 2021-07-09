@@ -25,6 +25,9 @@
 		}
 	},
 	"layouts": {
+		"Setup": {
+
+		},
 		"1P-16:9": {
 			"background": {
 				"background-image": "url('../assets/1p-16_9.png')"
@@ -80,19 +83,288 @@
 			}
 		},
 		"1P-10:9": {
-
+			"background": {
+				"background-image": "url('../assets/1p-10_9.png')"
+			},
+			"game-name": {
+				"font-size": "28px",
+				"left": "65px",
+				"height": "66px",
+				"width": "346px",
+				"top": "5px"
+			},
+			"category-name": {
+				"font-size": "20px",
+				"left": "45px",
+				"height": "50px",
+				"width": "386px",
+				"top": "75px"
+			},
+			"runner-name-1": {
+				"font-size": "28px",
+				"left": "65px",
+				"height": "66px",
+				"width": "346px",
+				"top": "119px"
+			},
+			"runner-pronouns-1": {
+				"font-size": "20px",
+				"left": "45px",
+				"height": "50px",
+				"width": "386px",
+				"top": "189px"
+			},
+			"timer": {
+				"font-size": "30px",
+				"left": "65px",
+				"height": "66px",
+				"width": "346px",
+				"top": "236px"
+			},
+			"estimate": {
+				"font-size": "20px",
+				"left": "45px",
+				"height": "50px",
+				"width": "386px",
+				"top": "302px"
+			},
+			"donation-total": {
+				"font-size": "66px",
+				"left": "220px",
+				"height": "85px",
+				"width": "250px",
+				"top": "646px"
+			}
 		},
 		"1P-8:7": {
-
+			"background": {
+				"background-image": "url('../assets/1p-8_7.png')"
+			},
+			"game-name": {
+				"font-size": "28px",
+				"left": "76px",
+				"height": "66px",
+				"width": "304px",
+				"top": "5px"
+			},
+			"category-name": {
+				"font-size": "20px",
+				"left": "76px",
+				"height": "50px",
+				"width": "304px",
+				"top": "75px"
+			},
+			"runner-name-1": {
+				"font-size": "28px",
+				"left": "76px",
+				"height": "66px",
+				"width": "304px",
+				"top": "119px"
+			},
+			"runner-pronouns-1": {
+				"font-size": "20px",
+				"left": "76px",
+				"height": "50px",
+				"width": "304px",
+				"top": "189px"
+			},
+			"timer": {
+				"font-size": "30px",
+				"left": "76px",
+				"height": "66px",
+				"width": "304px",
+				"top": "236px"
+			},
+			"estimate": {
+				"font-size": "20px",
+				"left": "76px",
+				"height": "50px",
+				"width": "304px",
+				"top": "302px"
+			},
+			"donation-total": {
+				"font-size": "66px",
+				"left": "200px",
+				"height": "85px",
+				"width": "250px",
+				"top": "646px"
+			}
 		},
 		"1P-4:3": {
-
+			"background": {
+				"background-image": "url('../assets/1p-4_3.png')"
+			},
+			"game-name": {
+				"font-size": "24px",
+				"left": "52px",
+				"height": "66px",
+				"width": "214px",
+				"top": "5px"
+			},
+			"category-name": {
+				"font-size": "15px",
+				"left": "52px",
+				"height": "50px",
+				"width": "214px",
+				"top": "75px"
+			},
+			"runner-name-1": {
+				"font-size": "24px",
+				"left": "52px",
+				"height": "66px",
+				"width": "214px",
+				"top": "119px"
+			},
+			"runner-pronouns-1": {
+				"font-size": "15px",
+				"left": "52px",
+				"height": "50px",
+				"width": "214px",
+				"top": "189px"
+			},
+			"timer": {
+				"font-size": "26px",
+				"left": "52px",
+				"height": "66px",
+				"width": "214px",
+				"top": "236px"
+			},
+			"estimate": {
+				"font-size": "15px",
+				"left": "52px",
+				"height": "50px",
+				"width": "214px",
+				"top": "302px"
+			},
+			"donation-total": {
+				"font-size": "50px",
+				"left": "154px",
+				"height": "85px",
+				"width": "160px",
+				"top": "660px"
+			}
 		},
 		"1P-3:2": {
-
+			"background": {
+				"background-image": "url('../assets/1p-3_2.png')"
+			},
+			"game-name": {
+				"font-size": "26px",
+				"left": "49px",
+				"height": "73px",
+				"width": "278px",
+				"top": "10px"
+			},
+			"category-name": {
+				"font-size": "16px",
+				"left": "49px",
+				"height": "50px",
+				"width": "278px",
+				"top": "86px"
+			},
+			"runner-name-1": {
+				"font-size": "26px",
+				"left": "49px",
+				"height": "73px",
+				"width": "278px",
+				"top": "135px"
+			},
+			"runner-pronouns-1": {
+				"font-size": "16px",
+				"left": "49px",
+				"height": "50px",
+				"width": "278px",
+				"top": "212px"
+			},
+			"timer": {
+				"font-size": "24px",
+				"left": "49px",
+				"height": "73px",
+				"width": "278px",
+				"top": "261px"
+			},
+			"estimate": {
+				"font-size": "16px",
+				"left": "49px",
+				"height": "50px",
+				"width": "278px",
+				"top": "338px"
+			},
+			"donation-total": {
+				"font-size": "80px",
+				"left": "1010px",
+				"height": "85px",
+				"width": "250px",
+				"top": "616px"
+			}
 		},
 		"2P-8:7": {
-
+			"background": {
+				"background-image": "url('../assets/2p-8_7.png')"
+			},
+			"game-name": {
+				"font-size": "22px",
+				"left": "550px",
+				"height": "66px",
+				"width": "180px",
+				"top": "496px"
+			},
+			"category-name": {
+				"font-size": "14px",
+				"left": "550px",
+				"height": "50px",
+				"width": "180px",
+				"top": "567px"
+			},
+			"runner-name-1": {
+				"font-size": "22px",
+				"left": "187px",
+				"height": "66px",
+				"width": "180px",
+				"top": "496px"
+			},
+			"runner-pronouns-1": {
+				"font-size": "14px",
+				"left": "187px",
+				"height": "50px",
+				"width": "180px",
+				"top": "567px"
+			},
+			"runner-name-2": {
+				"font-size": "22px",
+				"left": "912px",
+				"height": "66px",
+				"width": "180px",
+				"top": "496px"
+			},
+			"runner-pronouns-2": {
+				"font-size": "14px",
+				"left": "912px",
+				"height": "50px",
+				"width": "180px",
+				"top": "567px"
+			},
+			"timer": {
+				"font-size": "24px",
+				"left": "550px",
+				"height": "66px",
+				"width": "180px",
+				"top": "576px"
+			},
+			"estimate": {
+				"font-size": "14px",
+				"left": "550px",
+				"height": "50px",
+				"width": "180px",
+				"top": "645px"
+			},
+			"donation-total": {
+				"font-size": "80px",
+				"left": "1010px",
+				"height": "85px",
+				"width": "250px",
+				"top": "616px"
+			}
 		}
 	}
   }

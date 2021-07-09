@@ -38,10 +38,12 @@ const loadLayout = async () => {
             for (const prop in selectedLayout[element]) el.style[prop] = selectedLayout[element][prop];
         }
     });
-    setNames();
-    updateTwitch();
-    updateUpcoming();
-    stopwatch = new Stopwatch(/^\d/.exec(document.getElementById('layout').value)[0]);
+    if (document.getElementById('layout').value !== 'Setup') {
+        setNames();
+        //updateTwitch();
+        updateUpcoming();
+        stopwatch = new Stopwatch(/^\d/.exec(document.getElementById('layout').value)[0]);
+    }
 }
 
 const setNames = () => {
@@ -78,8 +80,12 @@ const updateTwitch = async () => {
 const updateUpcoming = () => {
     const runs = document.getElementById('runs');
     const currentRunIndex = runs.selectedIndex;
-    for (let i = 0; i < 3; i++) {
-        const next = runs.options[currentRunIndex + 1 + i];
-        fs.writeFileSync(nextPaths[i], next.dataset.game + '\n' + next.dataset.twitch.split(',').reduce((a, b, i) => a += i === 0 ? b : ', ' + b, ''));
+    for (let i = 1; i <= 3; i++) {
+        const next = runs.options[currentRunIndex + i];
+        if (next === undefined) continue;
+        const game = document.getElementById('upcoming-game-' + i);
+        game.innerText = next.dataset.game + ' (' + next.dataset.category + ')';
+        const runner = document.getElementById('upcoming-runner-' + i);
+        runner.innerText = next.dataset.runners.replace(/,/g, ', ');
     }
 }
