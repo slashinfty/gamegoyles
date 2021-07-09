@@ -18,4 +18,5 @@ document.addEventListener("DOMContentLoaded", async () => {
             runs.appendChild(option);   
         }
     });
+    updateUpcoming(true);
 });

@@ -77,9 +77,9 @@ const updateTwitch = async () => {
     });
 }
 
-const updateUpcoming = () => {
+const updateUpcoming = (initial = false) => {
     const runs = document.getElementById('runs');
-    const currentRunIndex = runs.selectedIndex;
+    const currentRunIndex = initial ? -1 : runs.selectedIndex;
     for (let i = 1; i <= 3; i++) {
         const next = runs.options[currentRunIndex + i];
         if (next === undefined) continue;
