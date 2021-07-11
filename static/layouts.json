@@ -61,17 +61,17 @@
 				"left": "125px",
 				"height": "85px",
 				"width": "280px",
-				"top": "640px"
+				"top": "625px"
 			},
 			"now-playing": {
 				"font-family": "Lato",
 				"flex-direction": "column",
 				"text-align": "center",
-				"font-size": "16px",
+				"font-size": "14px",
 				"left": "690px",
-				"height": "150px",
+				"height": "110px",
 				"width": "500px",
-				"top": "635px"
+				"top": "642px"
 			}
 		},
 		"1P-16:9": {
@@ -415,7 +415,7 @@
 				"left": "1010px",
 				"height": "85px",
 				"width": "250px",
-				"top": "616px"
+				"top": "625px"
 			}
 		}
 	}
