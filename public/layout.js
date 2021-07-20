@@ -40,7 +40,7 @@ const loadLayout = async () => {
     });
     if (document.getElementById('layout').value !== 'Setup') {
         setNames();
-        //updateTwitch();
+        updateTwitch();
         updateUpcoming();
         stopwatch = new Stopwatch(/^\d/.exec(document.getElementById('layout').value)[0]);
     }
