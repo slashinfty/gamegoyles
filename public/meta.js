@@ -25,4 +25,5 @@ const twitchTokens = require(twitchTokensPath);
 
 const toggleDisable = elementID => document.getElementById(elementID).disabled = !document.getElementById(elementID).disabled;
 
-var stopwatch, apiClient;
+var stopwatch, apiClient, chatClient;
+var commandCount = 0;

@@ -18,12 +18,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     apiClient = new ApiClient({ authProvider });
 
-    const chatClient = new ChatClient(authProvider, { channels: ['gamegoylesmarathon'] });
-    await chatClient.connect(); 
+    chatClient = new ChatClient(authProvider, { channels: ['gamegoylesmarathon'] });
+    await chatClient.connect();
 
-    chatClient.onMessage((channel, user, message) => {
+    chatClient.onMessage(async (channel, user, message) => {
         const comm = commands.find(c => c.command === message);
         if (comm === undefined) return;
-        chatClient.say(channel, comm.reply);
+        await chatClient.say(channel, comm.reply);
     });
+
+    const intervalMessage = async () => {
+        await chatClient.say('#gamegoylesmarathon', commands[commandCount].reply);
+        commandCount++;
+        if (commandCount === commands.length) commandCount = 0;
+    }
+    setInterval(intervalMessage, 240000);
 });
