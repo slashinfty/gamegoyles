@@ -58,7 +58,7 @@ const setNames = () => {
     nameArray.forEach((n, i) => {
         names[i].innerText = n;
         if (names[i].style.display === 'none') names[i].style.display = 'flex';
-        pronouns[i].innerText = pronounsList[n];
+        pronouns[i].innerText = pronounsList[n] === undefined ? '' : pronounsList[n];
         if (pronouns[i].style.display === 'none') pronouns[i].style.display = 'flex';
     });
     const twitchArray = runs.options[runs.selectedIndex].dataset.twitch.split(',');
