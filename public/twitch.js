@@ -32,5 +32,5 @@ document.addEventListener("DOMContentLoaded", async () => {
         commandCount++;
         if (commandCount === commands.length) commandCount = 0;
     }
-    setInterval(intervalMessage, 240000);
+    setInterval(intervalMessage, 350000);
 });

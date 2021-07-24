@@ -89,3 +89,5 @@ const updateUpcoming = (initial = false) => {
         runner.innerText = next.dataset.runners.replace(/,/g, ', ');
     }
 }
+
+const clearText = () => document.getElementById('status').value = '';
