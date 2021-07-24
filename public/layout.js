@@ -38,11 +38,11 @@ const loadLayout = async () => {
             for (const prop in selectedLayout[element]) el.style[prop] = selectedLayout[element][prop];
         }
     });
+    stopwatch = new Stopwatch(/^\d/.exec(document.getElementById('layout').value)[0]);
     if (document.getElementById('layout').value !== 'Setup') {
         setNames();
         updateTwitch();
-        updateUpcoming();
-        stopwatch = new Stopwatch(/^\d/.exec(document.getElementById('layout').value)[0]);
+        updateUpcoming(); 
     }
 }
 
