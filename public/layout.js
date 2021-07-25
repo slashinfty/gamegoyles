@@ -38,12 +38,12 @@ const loadLayout = async () => {
             for (const prop in selectedLayout[element]) el.style[prop] = selectedLayout[element][prop];
         }
     });
-    stopwatch = new Stopwatch(/^\d/.exec(document.getElementById('layout').value)[0]);
     if (document.getElementById('layout').value !== 'Setup') {
         setNames();
         updateTwitch();
         updateUpcoming(); 
-    }
+        if (stopwatch === undefined) stopwatch = new Stopwatch(/^\d/.exec(document.getElementById('layout').value)[0]);
+    } else stopwatch = undefined;
 }
 
 const setNames = () => {
@@ -70,6 +70,7 @@ const updateTwitch = async () => {
     const self = await apiClient.helix.users.getMe();
     const runElement = document.getElementById('runs');
     const helixGame = await apiClient.helix.games.getGameByName(runElement.options[runElement.selectedIndex].dataset.game);
+    if (helixGame === undefined) return;
     const game = await helixGame.id;
     await apiClient.helix.channels.updateChannelInfo(self, {
         title: process.env.TWITCH_TITLE,
