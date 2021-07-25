@@ -43,7 +43,10 @@ const loadLayout = async () => {
         updateTwitch();
         updateUpcoming(); 
         if (stopwatch === undefined) stopwatch = new Stopwatch(/^\d/.exec(document.getElementById('layout').value)[0]);
-    } else stopwatch = undefined;
+    } else {
+        if (stopwatch !== undefined && stopwatch.running) stopwatch.reset();
+        stopwatch = undefined;
+    }
 }
 
 const setNames = () => {
