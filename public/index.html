@@ -62,17 +62,17 @@
             <button id="clear" onclick="clearText();">Clear Text</button>
         </p>
         <p>
-            <button id="start-timer" onclick="stopwatch.start();">Start Timer</button>
+            <button id="start-timer" onclick="if (stopwatch !== undefined) stopwatch.start();">Start Timer</button>
             &nbsp;
-            <button id="reset-timer" onclick="stopwatch.reset();">Reset Timer</button>
+            <button id="reset-timer" onclick="if (stopwatch !== undefined) stopwatch.reset();">Reset Timer</button>
             &nbsp;
-            <button id="set-time-1" onclick="stopwatch.finish(1);">Player 1 Finish</button>
+            <button id="set-time-1" onclick="if (stopwatch !== undefined) stopwatch.finish(1);">Player 1 Finish</button>
             &nbsp;
-            <button id="set-time-2" onclick="stopwatch.finish(2);">Player 2 Finish</button>
+            <button id="set-time-2" onclick="if (stopwatch !== undefined) stopwatch.finish(2);">Player 2 Finish</button>
             &nbsp;
-            <button id="set-time-3" onclick="stopwatch.finish(3);">Player 3 Finish</button>
+            <button id="set-time-3" onclick="if (stopwatch !== undefined) stopwatch.finish(3);">Player 3 Finish</button>
             &nbsp;
-            <button id="set-time-4" onclick="stopwatch.finish(4);">Player 4 Finish</button>
+            <button id="set-time-4" onclick="if (stopwatch !== undefined) stopwatch.finish(4);">Player 4 Finish</button>
         </p>
     </div>
 
