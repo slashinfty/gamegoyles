@@ -84,3 +84,18 @@ class Stopwatch {
         return result;
     }
 }
+
+const setTime = () => {
+    const input = document.getElementById('time-to-set').value;
+    if (!/^((\d{1,2}:)?\d{1,2}:)?\d{1,2}(\.\d)?$/.test(input)) return;
+    const arr = input.split(':');
+    for (let i = 0, j = 3 - arr.length; i < arr.length; i++, j++) stopwatch.times[j] = Number(arr[i]);
+    if (stopwatch.times[2] !== parseInt(stopwatch.times[2])) {
+		stopwatch.times[3] = Number(/(?<=\.)\d+/.exec(stopwatch.times[2].toString())[0]);
+		stopwatch.times[2] = parseInt(stopwatch.times[2]);
+	}
+    stopwatch.print();
+    document.getElementById('time-to-set').value = '';
+}
+
+const getTime = () => document.getElementById('time-to-set').value = document.getElementById('timer').innerText;

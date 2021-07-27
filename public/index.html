@@ -74,6 +74,24 @@
             &nbsp;
             <button id="set-time-4" onclick="if (stopwatch !== undefined) stopwatch.finish(4);">Player 4 Finish</button>
         </p>
+        <p>
+            <label for="time-to-set">Set Time: </label>
+            &nbsp;
+            <input type="text" id="time-to-set" size="10"/>
+            &nbsp;
+            <button id="set-timer" onclick="if (stopwatch !== undefined && !stopwatch.running) setTime();">Set Time</button>
+            &nbsp;
+            <button id="get-time" onclick="getTime();">Get Time</button>
+            &nbsp;
+            <label for="game-to-set">Set Game: </label>
+            &nbsp;
+            <input type="text" id="game-to-set" size="35"/>
+            &nbsp;
+            <button id="set-game" onclick="setGame();">Set Game Name</button>
+        </p>
+        <p>
+            Current Game: <span id="current-game"></span>
+        </p>
     </div>
 
      <!-- JavaScript -->

@@ -79,6 +79,12 @@ const updateTwitch = async () => {
         title: process.env.TWITCH_TITLE,
         gameId: game
     });
+    const showGameName = async user => {
+        const self = await apiClient.helix.users.getMe();
+        const info = await apiClient.helix.channels.getChannelInfo(user);
+        document.getElementById('current-game').innerText = info.gameName;
+    }
+    setTimeout(showGameName, 10000, self);
 }
 
 const updateUpcoming = (initial = false) => {
@@ -86,11 +92,15 @@ const updateUpcoming = (initial = false) => {
     const currentRunIndex = initial ? -1 : runs.selectedIndex;
     for (let i = 1; i <= 3; i++) {
         const next = runs.options[currentRunIndex + i];
-        if (next === undefined) continue;
         const game = document.getElementById('upcoming-game-' + i);
-        game.innerText = next.dataset.game + ' (' + next.dataset.category + ')';
         const runner = document.getElementById('upcoming-runner-' + i);
-        runner.innerText = next.dataset.runners.replace(/,/g, ', ');
+        if (next === undefined) {
+            game.innerText = '';
+            runner.innerText = '';
+        } else {
+            game.innerText = next.dataset.game + ' (' + next.dataset.category + ')';
+            runner.innerText = next.dataset.runners.replace(/,/g, ', ');
+        }
     }
 }
 

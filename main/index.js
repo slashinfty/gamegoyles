@@ -8,7 +8,7 @@ const createWindow = () => {
             enableRemoteModule: true
         },
         title: 'Gamegoyles Hub',
-        height: 920,
+        height: 970,
         width: 1300,
         maximizable: false,
         resizable: false,

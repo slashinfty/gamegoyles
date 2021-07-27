@@ -33,4 +33,31 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (commandCount === commands.length) commandCount = 0;
     }
     setInterval(intervalMessage, 350000);
+
+    const showGameName = async () => {
+        const self = await apiClient.helix.users.getMe();
+        const info = await apiClient.helix.channels.getChannelInfo(self);
+        document.getElementById('current-game').innerText = info.gameName;
+    }
+    showGameName();
+    setInterval(showGameName, 300000);
 });
+
+const setGame = async () => {
+    const self = await apiClient.helix.users.getMe();
+    const gameName = document.getElementById('game-to-set').value;
+    const helixGame = await apiClient.helix.games.getGameByName(gameName);
+    if (helixGame === undefined) return;
+    const game = await helixGame.id;
+    await apiClient.helix.channels.updateChannelInfo(self, {
+        title: process.env.TWITCH_TITLE,
+        gameId: game
+    });
+    const showGameName = async user => {
+        const self = await apiClient.helix.users.getMe();
+        const info = await apiClient.helix.channels.getChannelInfo(user);
+        document.getElementById('current-game').innerText = info.gameName;
+    }
+    document.getElementById('game-to-set').value = '';
+    setTimeout(showGameName, 10000, self);
+}
