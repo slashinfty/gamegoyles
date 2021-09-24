@@ -38,14 +38,31 @@ const loadLayout = async () => {
             for (const prop in selectedLayout[element]) el.style[prop] = selectedLayout[element][prop];
         }
     });
+    const currentScene = await obs.send('GetCurrentScene');
     if (document.getElementById('layout').value !== 'Setup') {
         setNames();
         updateTwitch();
         updateUpcoming(); 
         if (stopwatch === undefined) stopwatch = new Stopwatch(/^\d/.exec(document.getElementById('layout').value)[0]);
+        if (currentScene.name === 'Setup') {
+            await obs.send('TransitionToProgram', {
+                'with-transition': {
+                    'name': 'Fade',
+                    'duration': 500
+                }
+            });
+        }
     } else {
         if (stopwatch !== undefined && stopwatch.running) stopwatch.reset();
         stopwatch = undefined;
+        if (currentScene.name === 'Live') {
+            await obs.send('TransitionToProgram', {
+                'with-transition': {
+                    'name': 'Fade',
+                    'duration': 500
+                }
+            });
+        }
     }
 }
 

@@ -7,6 +7,9 @@ const TiltifyClient = require("tiltify-api-client")
 const { ApiClient } = require('twitch');
 const { ChatClient } = require('twitch-chat-client');
 const { AccessToken, RefreshableAuthProvider, StaticAuthProvider } = require('twitch-auth');
+const { OBSWebSocket } = require('obs-websocket-js');
+
+const obs = new OBSWebSocket();
 
 require('dotenv').config({ path: path.resolve(__dirname, '../.env')});
 
