@@ -93,7 +93,7 @@ const setRTMP = async () => {
         await obs.send('SetSourceSettings', {
             'sourceName': `RTMP${i + 1}`,
             'sourceSettings': {
-                'playlist': [{ 'value': `${process.env.RTMP}/${nameArray[i]}` }]
+                'playlist': [{ 'value': `${process.env.RTMP}/${nameArray[i].toLowerCase()}` }]
             }
         });
     }
