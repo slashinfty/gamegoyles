@@ -25,7 +25,7 @@ const createWindow = () => {
     });
 
     // Uncomment next line if you need to use dev console
-    win.webContents.openDevTools();
+    win.webContents.openDevTools({ mode: 'detach' });
 }
 
 app.allowRendererProcessReuse = false;

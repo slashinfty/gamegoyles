@@ -43,7 +43,27 @@ const loadLayout = async () => {
         setNames();
         updateTwitch();
         updateUpcoming(); 
-        if (stopwatch === undefined) stopwatch = new Stopwatch(/^\d/.exec(document.getElementById('layout').value)[0]);
+        const playerCount = /^\d/.exec(document.getElementById('layout').value)[0];
+        if (stopwatch === undefined) stopwatch = new Stopwatch(playerCount);
+        for (let i = 0; i < playerCount; i++) {
+            const props = await obs.send('GetSceneItemProperties', { 
+                'scene-name': 'Live',
+                'item': `RTMP${i + 1}` 
+            });
+            const obsLayout = playerCount > 1 ? obsLayouts[document.getElementById('layout').value] : obsLayouts[document.getElementById('layout').value][i];
+            await obs.send('SetSceneItemProperties', {
+                'scene-name': 'Live',
+                'item': `RTMP${i + 1}`,
+                'position': {
+                    'x': obsLayout.position.x,
+                    'y': obsLayout.position.y
+                },
+                'scale': {
+                    'x': parseFloat(obsLayout.scale.x / props.width),
+                    'y': parseFloat(obsLayout.scale.y / props.height)
+                }
+            });
+        }
         if (currentScene.name === 'Setup') {
             await obs.send('TransitionToProgram', {
                 'with-transition': {
@@ -63,6 +83,19 @@ const loadLayout = async () => {
                 }
             });
         }
+    }
+}
+
+const setRTMP = async () => {
+    const runs = document.getElementById('runs');
+    const nameArray = runs.options[runs.selectedIndex].dataset.runners.split(',');
+    for (let i = 0; i < nameArray.length; i++) {
+        await obs.send('SetSourceSettings', {
+            'sourceName': `RTMP${i + 1}`,
+            'sourceSettings': {
+                'playlist': [{ 'value': `${process.env.RTMP}/${nameArray[i]}` }]
+            }
+        });
     }
 }
 
